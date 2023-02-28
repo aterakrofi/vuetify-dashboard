@@ -1,10 +1,17 @@
 <template>
   <v-app>
     
-      
+    <v-app-bar app color ="primary" dark>
+      <v-tool-bar-tittle> Vuetify Dashboard</v-tool-bar-tittle>
+      <v-spacer></v-spacer>
+      <v-btn text rounded>Home</v-btn>
+      <v-btn text rounded>Login</v-btn>
+    </v-app-bar>
+    <v-main>
+     <!----Login Module---> 
   <v-card width ="400" class="mx-auto mt-5">
   <v-card-title> 
-        <h1 class ="display-1"> Login </h1>
+        <h2 class ="display-1"> Login </h2>
   </v-card-title>
 
   <v-card-text>
@@ -28,7 +35,26 @@
     <v-btn color ="info">Login</v-btn>
   </v-card-actions>
 </v-card>
+    </v-main>
     
+  <v-footer class="bg-grey-lighten-1">
+    <v-row justify="center" no-gutters>
+      <v-btn
+        v-for="link in links"
+        :key="link"
+        color="white"
+        variant="text"
+        class="mx-2"
+        rounded="xl"
+      >
+        {{ link }}
+      </v-btn>
+      <v-col class="text-center mt-4" cols="12">
+        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+      </v-col>
+    </v-row>
+  </v-footer>
+
   </v-app>
 </template>
 
@@ -43,7 +69,12 @@ export default {
   },
 
   data: () => ({
-    showPassword : false
+    showPassword : false,
+    links:[
+      'Home',
+      'Login'
+    ]
   }),
+  
 }
 </script>
